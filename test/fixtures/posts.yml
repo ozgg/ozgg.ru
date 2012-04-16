@@ -2,16 +2,12 @@
 
 one:
   title: MyString
-  alias: MyString
-  body_raw: MyText
+  title_url: mystring
   body: MyText
-  preview: MyText
   description: MyText
 
 two:
   title: MyString
-  alias: MyString
-  body_raw: MyText
+  title_url: mystring
   body: MyText
-  preview: MyText
   description: MyText

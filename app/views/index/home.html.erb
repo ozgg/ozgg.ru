@@ -6,6 +6,7 @@
       <time datetime="<%= post.created_at.to_datetime %>"><%= post.created_at %></time>
       <h3><%= link_to post.title, post %></h3>
       <p class="description"><%= post.description %></p>
+      <p><%= post.title_url %></p>
     </li>
   <% end %>
 </ul>
