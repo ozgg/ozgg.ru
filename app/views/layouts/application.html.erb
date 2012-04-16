@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <title>Dr. von Ozgg</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 </head>
 <body>
 
-<%= yield %>
+<header>
+  <nav>
+    <ul>
+      <li><%= link_to 'Blog', posts_path %></li>
+      <li><a href="/" title="">Projects</a></li>
+      <li><a href="/" title="">Visions</a></li>
+      <li><a href="/" title="">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="content">
+  <%= yield %>
+</section>
+
+<section id="sidebar">
+  <script type="text/javascript" src="http://widgets.twitpic.com/j/2/widget.js?username=dr_von_ozgg&amp;colorbg=FFFFFF&amp;colorborder=E2E2E2&amp;colorlinks=5C9FCC&amp;colortweetbg=F2F2F2&amp;colortweets=222222&amp;theme=grid_vertical&amp;width=250&amp;count=9&amp;timestamp=0"></script>
+</section>
+
+<footer>
+  &#169; 2012 ozgg.ru
+</footer>
 
 </body>
 </html>
