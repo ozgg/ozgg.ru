@@ -1,20 +1,7 @@
 <h1>Blog</h1>
 
 <% @posts.each do |post| %>
-    <article class="post">
-      <header>
-        <time datetime="<%= post.created_at.to_datetime %>"><%= post.created_at %></time>
-        <h2><%= post.title %></h2>
-      </header>
-      <div>
-        <%= post.body %>
-      </div>
-      <ul>
-        <li><%= link_to 'Show', post %></li>
-        <li><%= link_to 'Edit', edit_post_path(post) %></li>
-        <li><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></li>
-      </ul>
-    </article>
+<%= render post %>
 <% end %>
 
 <br />

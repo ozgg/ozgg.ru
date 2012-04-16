@@ -1,2 +1,11 @@
-<h1>Index#home</h1>
-<p>Find me in app/views/index/home.html.erb</p>
+<h1>Dr. von Ozgg</h1>
+<h2>Recent posts</h2>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <time datetime="<%= post.created_at.to_datetime %>"><%= post.created_at %></time>
+      <h3><%= link_to post.title, post %></h3>
+      <p class="description"><%= post.description %></p>
+    </li>
+  <% end %>
+</ul>
