@@ -4,7 +4,7 @@
     <h2><%= post.title %></h2>
   </header>
   <div>
-    <%= post.body %>
+    <%= raw process_entry_body post.body %>
   </div>
   <ul>
     <li><%= link_to 'Show', post %></li>
