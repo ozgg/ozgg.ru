@@ -14,6 +14,7 @@ class VisionsController < ApplicationController
   # GET /visions/1.json
   def show
     @vision = Vision.find(params[:id])
+    @neighbours = @vision.neighbours
 
     respond_to do |format|
       format.html # show.html.erb
