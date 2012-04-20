@@ -42,6 +42,14 @@ p {
   text-indent: 1.5em;
 }
 
+form {
+  margin: 0 1em;
+
+  textarea {
+    width: 100%;
+  }
+}
+
 header {
   margin: 3px 0;
   border-top: solid 3px #555555;
@@ -91,6 +99,10 @@ section#content {
     header {
       margin: 0;
     }
+  }
+
+  footer {
+    margin: 0 1em;
   }
 }
 

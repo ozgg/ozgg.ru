@@ -22,6 +22,9 @@
 </header>
 
 <section id="content">
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+  <% end %>
   <%= yield %>
 </section>
 
