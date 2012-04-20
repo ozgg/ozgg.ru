@@ -3,6 +3,15 @@ ru:
   delete: Удалить
   sure: Точно?
   back: Назад
+  bad_credentials: Не подходит имя пользователя или пароль
+  logged_out: Выход прошёл успешно
+  log_in: Вход
+  log_out: Выход
+  sessions:
+    new:
+      name: Пользователь
+      password: Пароль
+      login: Войти
   blog:
     title: Блог
     recent: "Недавние записи"
