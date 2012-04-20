@@ -3,5 +3,6 @@ en:
     title: Blog
     recent: "Recent posts"
   projects: Projects
-  visions: Visions
+  visions:
+    about: "About visions"
   about: About

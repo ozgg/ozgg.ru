@@ -1,0 +1,9 @@
+<h1><%= t('visions.page') %></h1>
+<%= raw t('visions.about') %>
+<ul>
+  <% @visions.each do |vision| %>
+    <li><%= link_to vision.title, vision %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Vision', new_vision_path %>

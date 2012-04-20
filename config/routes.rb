@@ -1,4 +1,6 @@
 Ozgg::Application.routes.draw do
+  resources :visions
+
   get "/about" => 'index#about'
 
   resources :posts
