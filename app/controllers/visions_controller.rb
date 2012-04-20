@@ -1,4 +1,6 @@
 class VisionsController < ApplicationController
+  skip_before_filter :authorize, only: [:index, :show]
+
   # GET /visions
   # GET /visions.json
   def index

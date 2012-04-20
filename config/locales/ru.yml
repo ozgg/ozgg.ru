@@ -7,6 +7,7 @@ ru:
   logged_out: Выход прошёл успешно
   log_in: Вход
   log_out: Выход
+  authorization_needed: Необходима авторизация
   sessions:
     new:
       name: Пользователь
