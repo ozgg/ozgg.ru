@@ -11,5 +11,9 @@
 </nav>
 <%= render @vision %>
 
-<%= link_to 'Edit', edit_vision_path(@vision) %> |
-<%= link_to 'Back', visions_path %>
+<% if session[:user_id] %>
+<footer>
+  <%= link_to 'Edit', edit_vision_path(@vision) %> |
+  <%= link_to 'Back', visions_path %>
+</footer>
+<% end %>

@@ -1,4 +1,4 @@
-<h1><%= t('visions.page') %></h1>
+<header><h1><%= t('visions.page') %></h1></header>
 <%= raw t('visions.about') %>
 <ul>
   <% @visions.each do |vision| %>
@@ -6,4 +6,6 @@
   <% end %>
 </ul>
 
-<%= link_to 'New Vision', new_vision_path %>
+<% if session[:user_id] %>
+<footer><%= link_to 'New Vision', new_vision_path %></footer>
+<% end %>

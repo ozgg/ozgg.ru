@@ -6,9 +6,13 @@
   <div>
     <%= raw process_entry_body post.body %>
   </div>
-  <ul>
-    <li><%= link_to 'Show', post %></li>
-    <li><%= link_to 'Edit', edit_post_path(post) %></li>
-    <li><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></li>
-  </ul>
+  <% if session[:user_id] %>
+  <footer>
+    <ul>
+      <li><%= link_to 'Show', post %></li>
+      <li><%= link_to 'Edit', edit_post_path(post) %></li>
+      <li><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></li>
+    </ul>
+  </footer>
+  <% end %>
 </article>
