@@ -1,11 +1,11 @@
-<header><h1><%= t('visions.page') %></h1></header>
+<header><h1><%= t('.title') %></h1></header>
 <nav class="neighbours">
   <ul>
 <% if @neighbours[:prev] %>
-    <li class="previous"><%= link_to t('visions.previous'), @neighbours[:prev], title: @neighbours[:prev].title %></li>
+    <li class="previous"><%= link_to t('.previous'), @neighbours[:prev], title: @neighbours[:prev].title %></li>
 <% end %>
 <% if @neighbours[:next] %>
-    <li class="next"><%= link_to t('visions.next'), @neighbours[:next], title: @neighbours[:next].title %></li>
+    <li class="next"><%= link_to t('.next'), @neighbours[:next], title: @neighbours[:next].title %></li>
 <% end %>
   </ul>
 </nav>
@@ -13,7 +13,8 @@
 
 <% if session[:user_id] %>
 <footer>
-  <%= link_to 'Edit', edit_vision_path(@vision) %> |
-  <%= link_to 'Back', visions_path %>
+  <%= link_to t('edit'), edit_vision_path(@vision) %> |
+  <%= link_to t('back'), visions_path %> |
+  <%= link_to t('delete'), @vision, method: :delete, confirm: t('sure') %>
 </footer>
 <% end %>

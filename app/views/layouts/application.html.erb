@@ -13,12 +13,12 @@
 <header>
   <nav>
     <ul>
-      <li><%= link_to t('blog.title'), posts_path %></li>
-      <li><a href="/" title=""><%= t('projects') %></a></li>
-      <li><%= link_to t('visions.title'), visions_path %></li>
-      <li><%= link_to t('about'), about_path %></li>
+      <li><%= link_to t('.blog'), posts_path %></li>
+      <li><a href="/" title=""><%= t('.projects') %></a></li>
+      <li><%= link_to t('.visions'), visions_path %></li>
+      <li><%= link_to t('.about'), about_path %></li>
       <% if session[:user_id] %>
-      <li><%= link_to t('log_out'), logout_path, method: :delete %></li>
+      <li><%= link_to t('.logout'), logout_path, method: :delete %></li>
       <% end %>
     </ul>
   </nav>

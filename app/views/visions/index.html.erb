@@ -1,5 +1,8 @@
-<header><h1><%= t('visions.page') %></h1></header>
-<%= raw t('visions.about') %>
+<header>
+  <h1><%= t('.title') %></h1>
+  <%= raw t('.about') %>
+</header>
+
 <ul>
   <% @visions.each do |vision| %>
     <li><%= link_to vision.title, vision %></li>
@@ -7,5 +10,5 @@
 </ul>
 
 <% if session[:user_id] %>
-<footer><%= link_to 'New Vision', new_vision_path %></footer>
+<footer><%= link_to t('.new'), new_vision_path %></footer>
 <% end %>

@@ -1,5 +1,8 @@
-<h1>New vision</h1>
+<header>
+  <h1><%= t('visions.index.title') %></h1>
+  <h2><%= t('visions.index.new') %></h2>
+</header>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', visions_path %>
+<footer><%= link_to t('back'), visions_path %></footer>
