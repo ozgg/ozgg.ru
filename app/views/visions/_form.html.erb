@@ -1,8 +1,7 @@
 <%= form_for(@vision) do |f| %>
   <% if @vision.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t('errors.template.header', count: @vision.errors.count, model: t('activerecord.models.vision')) %>
-              </h2>
+      <h2><%= t('errors.template.header', count: @vision.errors.count, model: t('activerecord.models.vision')) %></h2>
 
       <ul>
       <% @vision.errors.full_messages.each do |msg| %>

@@ -8,10 +8,10 @@ ru:
   logged_out: Выход прошёл успешно
   log_in: Вход
   authorization_needed: Необходима авторизация
-  blog:
+  posts:
     index:
       title: Блог
-      recent: "Недавние записи"
+      new: Новая запись
     show:
       title: Блог
     new:
@@ -24,10 +24,15 @@ ru:
   activerecord:
     models:
       vision: Видение
+      post: Запись
     attributes:
       vision:
         title: Название
         body: Текст
+      post:
+        title: Название
+        body: Текст
+        description: Описание
   layouts:
     application:
       blog: Блог
@@ -35,6 +40,9 @@ ru:
       visions: «Видения»
       about: Обо мне
       logout: Выход
+  index:
+    home:
+      recent: Недавние записи
   sessions:
     new:
       name: Пользователь
@@ -46,9 +54,6 @@ ru:
     name: Имя
     password: Пароль
     password_confirmation: Подтверждение пароля
-  posts:
-    index:
-      title: Блог
   projects:
     index:
       title: Проекты

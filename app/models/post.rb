@@ -1,6 +1,7 @@
 #encoding: utf-8
 class Post < ActiveRecord::Base
   before_validation :make_title_url
+  validates_presence_of :title, :body
 
   protected
 
