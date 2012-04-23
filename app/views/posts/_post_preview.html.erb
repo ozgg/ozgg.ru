@@ -1,0 +1,9 @@
+<article class="post-preview">
+  <header>
+    <time datetime="<%= post.created_at.to_datetime %>"><%= post.created_at %></time>
+    <h2><%= link_to post.title, post %></h2>
+  </header>
+  <div>
+    <%= raw process_entry_body post.body %>
+  </div>
+</article>

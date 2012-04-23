@@ -1,7 +1,7 @@
 <header><h1><%= t('.title') %></h1></header>
 
 <% @posts.each do |post| %>
-<%= render post %>
+<%= render partial: 'post_preview', locals: {post: post} %>
 <% end %>
 
 <br />
