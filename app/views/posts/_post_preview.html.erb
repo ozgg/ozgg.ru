@@ -1,6 +1,6 @@
-<article class="post-preview">
+<article class="post preview">
   <header>
-    <time datetime="<%= post.created_at.to_datetime %>"><%= post.created_at %></time>
+    <time datetime="<%= post.created_at.to_datetime %>"><%= l post.created_at, format: :long %></time>
     <h2><%= link_to post.title, post %></h2>
   </header>
   <div>
