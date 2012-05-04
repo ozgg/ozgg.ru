@@ -4,6 +4,6 @@
     <h2><%= link_to post.title, post %></h2>
   </header>
   <div>
-    <%= raw process_entry_body post.body %>
+    <%= raw preview_post(post.body, 3) %>
   </div>
 </article>

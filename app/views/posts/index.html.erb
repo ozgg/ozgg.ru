@@ -3,7 +3,7 @@
 <% @posts.each do |post| %>
 <%= render partial: 'post_preview', locals: {post: post} %>
 <% end %>
-
+<p><%= will_paginate @posts %></p>
 <br />
 <% if session[:user_id] %>
 <footer><%= link_to t('.new'), new_post_path %></footer>

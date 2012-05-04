@@ -2,11 +2,22 @@
 <html lang="ru">
 <head>
   <title>Dr. von Ozgg</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <meta charset="UTF-8" />
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <!--[if lt IE 9]>
+  <script type="text/javascript">
+      document.createElement("nav");
+      document.createElement("header");
+      document.createElement("footer");
+      document.createElement("section");
+      document.createElement("aside");
+      document.createElement("article");
+  </script>
+  <![endif]-->
 </head>
 <body>
 
