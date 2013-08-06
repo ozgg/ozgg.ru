@@ -25,7 +25,7 @@
   <nav>
     <ul>
       <li><%= link_to t('.blog'), posts_path %></li>
-      <li><a href="/" title=""><%= t('.projects') %></a></li>
+      <li><%= link_to t('.projects'), projects_path %></a></li>
       <li><%= link_to t('.visions'), visions_path %></li>
       <li><%= link_to t('.about'), about_path %></li>
       <% if session[:user_id] %>

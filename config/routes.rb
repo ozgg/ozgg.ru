@@ -12,6 +12,8 @@ Ozgg::Application.routes.draw do
 
   get 'about' => 'index#about'
 
+  get 'projects' => 'projects#index'
+
   resources :posts
 
   # The priority is based upon order of creation:
