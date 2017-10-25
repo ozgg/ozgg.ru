@@ -1,8 +1,0 @@
-<header><h1><%= t('.title') %></h1></header>
-<%= render @post %>
-<% if session[:user_id] %>
-<footer>
-  <%= link_to t('edit'), edit_post_path(@post) %> |
-  <%= link_to t('back'), posts_path %>
-</footer>
-<% end %>

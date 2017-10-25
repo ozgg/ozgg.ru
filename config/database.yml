@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: ozgg
+  #username: ozgg
+  #password:
+  #host: localhost
+  #port: 5432
+  #schema_search_path: myapp,sharedapp,public
+  #min_messages: notice
+
+test:
+  <<: *default
+  database: ozgg_test
+
+production:
+  <<: *default
+  database: ozgg
+  username: maxim
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: localhost

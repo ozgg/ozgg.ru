@@ -1,9 +1,0 @@
-<header><h1><%= t('users.title') %></h1></header>
-
-<ul>
-  <% @users.each do |user| %>
-     <li><%= link_to user.name, user %> (<%= link_to t('delete'), user, confirm: t('sure'), method: :delete %>)</li>
-  <% end %>
-</ul>
-
-<footer><%= link_to t('users.new'), new_user_path %></footer>

@@ -1,54 +1,26 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="<%= locale %>" prefix="og: http://ogp.me/ns#">
 <head>
-  <title>Dr. von Ozgg</title>
-  <meta charset="UTF-8" />
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <meta charset="UTF-8"/>
+  <title><%= yield :meta_title %></title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-  <script type="text/javascript">
-      document.createElement("nav");
-      document.createElement("header");
-      document.createElement("footer");
-      document.createElement("section");
-      document.createElement("aside");
-      document.createElement("article");
-  </script>
-  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <%= render 'shared/meta_texts' %>
 </head>
 <body>
+<%= render 'layouts/application/header' %>
 
-<header>
-  <nav>
-    <ul>
-      <li><%= link_to t('.blog'), posts_path %></li>
-      <li><%= link_to t('.projects'), projects_path %></a></li>
-      <li><%= link_to t('.visions'), visions_path %></li>
-      <li><%= link_to t('.about'), about_path %></li>
-      <% if session[:user_id] %>
-      <li><%= link_to t('.logout'), logout_path, method: :delete %></li>
-      <% end %>
-    </ul>
-  </nav>
-</header>
+<main id="main">
+  <%= render 'shared/flash_messages' %>
+  <%= render 'shared/breadcrumbs' %>
 
-<section id="content">
-  <% if notice %>
-  <p id="notice"><%= notice %></p>
-  <% end %>
   <%= yield %>
-</section>
+</main>
 
-<section id="sidebar">
-  <script type="text/javascript" src="http://widgets.twitpic.com/j/2/widget.js?username=dr_von_ozgg&amp;colorbg=FFFFFF&amp;colorborder=E2E2E2&amp;colorlinks=5C9FCC&amp;colortweetbg=F2F2F2&amp;colortweets=222222&amp;theme=grid_vertical&amp;width=250&amp;count=9&amp;timestamp=0"></script>
-</section>
-
-<footer>
-  &#169; 2012 <%= link_to 'ozgg.ru', root_path %>
-</footer>
-
+<%= render 'layouts/application/footer' %>
+<%= render 'shared/counters' %>
 </body>
 </html>

@@ -1,9 +1,0 @@
-<article class="post preview">
-  <header>
-    <time datetime="<%= post.created_at.to_datetime %>"><%= l post.created_at, format: :long %></time>
-    <h2><%= link_to post.title, post %></h2>
-  </header>
-  <div>
-    <%= raw preview_post(post.body, 3) %>
-  </div>
-</article>
