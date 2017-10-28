@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/Biovision/biovision-base.git
-  revision: e75fa41bfa13a32edb73b0261d76bb6544fba5e1
+  revision: 915a522f81be3f4876d320cbb8050452f9020349
   specs:
-    biovision-base (0.8.171026)
+    biovision-base (0.8.171028)
       bcrypt (~> 3.1)
       carrierwave
       carrierwave-bombshelter
@@ -186,7 +186,7 @@ GEM
       rspec-support (~> 3.7.0)
     rspec-support (3.7.0)
     ruby_dep (1.5.0)
-    sass (3.5.2)
+    sass (3.5.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -212,7 +212,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    tzinfo (1.2.3)
+    tzinfo (1.2.4)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)

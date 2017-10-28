@@ -1,10 +1,10 @@
 ru:
-  copyright: "2017 example.com"
+  copyright: "2007-2010, 2017 ozgg.ru"
   shared:
     meta_texts:
-      site_name: "example.com"
+      site_name: "ozgg.ru"
   index:
     index:
-      description: "Новый сайт на движке biovision-base"
+      description: "Dr. von Ozgg"
       heading: "Главная страница"
-      title: "Главная страница"
+      title: "Dr. von Ozgg"
