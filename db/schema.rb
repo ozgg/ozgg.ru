@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026234254) do
+ActiveRecord::Schema.define(version: 20171028233960) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,81 @@ ActiveRecord::Schema.define(version: 20171026234254) do
     t.integer "previous_value", default: 0, null: false
     t.string "name", null: false
     t.string "description", default: "", null: false
+  end
+
+  create_table "post_categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "post_type_id", null: false
+    t.integer "parent_id"
+    t.integer "priority", limit: 2, default: 1, null: false
+    t.integer "posts_count", default: 0, null: false
+    t.boolean "locked", default: false, null: false
+    t.boolean "visible", default: true, null: false
+    t.boolean "deleted", default: false, null: false
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.string "long_slug", null: false
+    t.string "parents_cache", default: "", null: false
+    t.integer "children_cache", default: [], null: false, array: true
+    t.index ["post_type_id"], name: "index_post_categories_on_post_type_id"
+  end
+
+  create_table "post_types", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "posts_count", default: 0, null: false
+    t.integer "category_depth", limit: 2, default: 0
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.index ["name"], name: "index_post_types_on_name", unique: true
+    t.index ["slug"], name: "index_post_types_on_slug", unique: true
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "post_type_id", null: false
+    t.bigint "post_category_id"
+    t.bigint "region_id"
+    t.integer "original_post_id"
+    t.bigint "agent_id"
+    t.inet "ip"
+    t.datetime "publication_time"
+    t.boolean "visible", default: true, null: false
+    t.boolean "locked", default: false, null: false
+    t.boolean "deleted", default: false, null: false
+    t.boolean "approved", default: true, null: false
+    t.boolean "show_owner", default: true, null: false
+    t.boolean "allow_comments", default: true, null: false
+    t.integer "privacy", limit: 2, default: 0
+    t.integer "comments_count", default: 0, null: false
+    t.integer "view_count", default: 0, null: false
+    t.integer "upvote_count", default: 0, null: false
+    t.integer "downvote_count", default: 0, null: false
+    t.integer "vote_result", default: 0, null: false
+    t.string "uuid", null: false
+    t.string "title", null: false
+    t.string "slug", null: false
+    t.string "video_url"
+    t.string "image"
+    t.string "image_name"
+    t.string "image_author_name"
+    t.string "image_author_link"
+    t.string "source_name"
+    t.string "source_link"
+    t.text "lead"
+    t.text "body", null: false
+    t.text "parsed_body"
+    t.string "tags_cache", default: [], null: false, array: true
+    t.index "date_trunc('month'::text, publication_time), post_type_id, user_id", name: "posts_published_month_idx"
+    t.index ["agent_id"], name: "index_posts_on_agent_id"
+    t.index ["post_category_id"], name: "index_posts_on_post_category_id"
+    t.index ["post_type_id"], name: "index_posts_on_post_type_id"
+    t.index ["region_id"], name: "index_posts_on_region_id"
+    t.index ["slug"], name: "index_posts_on_slug"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "privilege_group_privileges", force: :cascade do |t|
@@ -288,6 +363,14 @@ ActiveRecord::Schema.define(version: 20171026234254) do
   add_foreign_key "login_attempts", "agents"
   add_foreign_key "login_attempts", "users"
   add_foreign_key "metric_values", "metrics"
+  add_foreign_key "post_categories", "post_categories", column: "parent_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "post_categories", "post_types"
+  add_foreign_key "posts", "agents"
+  add_foreign_key "posts", "post_categories"
+  add_foreign_key "posts", "post_types"
+  add_foreign_key "posts", "posts", column: "original_post_id", on_update: :cascade, on_delete: :nullify
+  add_foreign_key "posts", "regions"
+  add_foreign_key "posts", "users"
   add_foreign_key "privilege_group_privileges", "privilege_groups"
   add_foreign_key "privilege_group_privileges", "privileges"
   add_foreign_key "privileges", "privileges", column: "parent_id", on_update: :cascade, on_delete: :cascade
