@@ -15,3 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile << %w(admin.scss)
 Rails.application.config.assets.precompile << %w(biovision/base/**/*)
+Rails.application.config.assets.precompile << %w(biovision/post/**/*)
