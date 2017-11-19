@@ -2,6 +2,42 @@ html {
   font-weight: 300;
 }
 
+body {
+  > header {
+    nav {
+      font-size: $font-size-increased;
+      font-variant: small-caps;
+      margin: 0 auto 0 3.2rem;
+    }
+
+    ul {
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      list-style: none;
+      margin: 0 .4rem;
+    }
+  }
+
+  > footer {
+    > div {
+      nav {
+        margin-right: .8rem;
+        text-align: right;
+      }
+    }
+  }
+}
+
 a {
   font-weight: 400;
+}
+
+.index-greeting {
+  border-bottom: $border-secondary;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.6rem;
 }

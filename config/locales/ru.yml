@@ -8,3 +8,6 @@ ru:
       description: "Dr. von Ozgg"
       heading: "Главная страница"
       title: "Dr. von Ozgg"
+  about:
+    index:
+      nav_text: "Обо мне"

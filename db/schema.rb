@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 20171028233960) do
     t.string "slug", null: false
     t.string "video_url"
     t.string "image"
+    t.string "image_alt_text"
     t.string "image_name"
     t.string "image_author_name"
     t.string "image_author_link"
