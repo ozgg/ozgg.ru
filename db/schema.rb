@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028233960) do
+ActiveRecord::Schema.define(version: 20171203163747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,44 @@ ActiveRecord::Schema.define(version: 20171028233960) do
     t.string "password", default: "", null: false
     t.index ["agent_id"], name: "index_login_attempts_on_agent_id"
     t.index ["user_id"], name: "index_login_attempts_on_user_id"
+  end
+
+  create_table "media_files", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "media_folder_id"
+    t.bigint "user_id"
+    t.bigint "agent_id"
+    t.inet "ip"
+    t.boolean "locked", default: false, null: false
+    t.string "uuid", null: false
+    t.string "snapshot"
+    t.string "file"
+    t.string "mime_type"
+    t.string "original_name"
+    t.string "name", null: false
+    t.string "description"
+    t.index ["agent_id"], name: "index_media_files_on_agent_id"
+    t.index ["media_folder_id"], name: "index_media_files_on_media_folder_id"
+    t.index ["user_id"], name: "index_media_files_on_user_id"
+  end
+
+  create_table "media_folders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "agent_id"
+    t.inet "ip"
+    t.integer "parent_id"
+    t.integer "media_files_count", default: 0, null: false
+    t.integer "depth", limit: 2, default: 0, null: false
+    t.string "uuid", null: false
+    t.string "snapshot"
+    t.string "parents_cache", default: "", null: false
+    t.string "name", null: false
+    t.integer "children_cache", default: [], null: false, array: true
+    t.index ["agent_id"], name: "index_media_folders_on_agent_id"
+    t.index ["user_id"], name: "index_media_folders_on_user_id"
   end
 
   create_table "metric_values", force: :cascade do |t|
@@ -363,6 +401,12 @@ ActiveRecord::Schema.define(version: 20171028233960) do
   add_foreign_key "foreign_users", "users"
   add_foreign_key "login_attempts", "agents"
   add_foreign_key "login_attempts", "users"
+  add_foreign_key "media_files", "agents"
+  add_foreign_key "media_files", "media_folders"
+  add_foreign_key "media_files", "users"
+  add_foreign_key "media_folders", "agents"
+  add_foreign_key "media_folders", "media_folders", column: "parent_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "media_folders", "users"
   add_foreign_key "metric_values", "metrics"
   add_foreign_key "post_categories", "post_categories", column: "parent_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "post_categories", "post_types"
