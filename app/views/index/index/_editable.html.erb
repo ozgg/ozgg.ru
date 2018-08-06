@@ -1,9 +1,0 @@
-<% if editable_page.nil? %>
-    <h1><%= t('index.index.heading') %></h1>
-<% else %>
-    <h1><%= editable_page.title %></h1>
-
-    <div class="index-greeting">
-      <%= raw(editable_page.body) %>
-    </div>
-<% end %>

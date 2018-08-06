@@ -3,24 +3,27 @@
 <head>
   <meta charset="UTF-8"/>
   <title><%= yield :meta_title %></title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="format-detection" content="telephone=no"/>
   <%= render 'shared/meta_texts' %>
+
+  <%= javascript_pack_tag 'application' %>
+  <%= stylesheet_pack_tag 'stylesheets' %>
 </head>
+
 <body>
-<%= render 'layouts/application/header' %>
+<%#= render 'layouts/application/header' %>
 
 <main id="main">
-  <%= render 'shared/flash_messages' %>
-  <%= render 'shared/breadcrumbs' %>
+  <%#= render 'shared/flash_messages' %>
+  <%#= render 'shared/breadcrumbs' %>
 
   <%= yield %>
 </main>
 
-<%= render 'layouts/application/footer' %>
-<%= render 'shared/counters' %>
+<%#= render 'layouts/application/footer' %>
+<%#= render 'shared/counters' %>
 </body>
 </html>
