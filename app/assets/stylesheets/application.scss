@@ -1,3 +1,4 @@
-body {
-  background: lime;
-}
+@import "shared";
+@import "biovision/biovision";
+@import "biovision/themes/default_theme";
+@import "application/layout";

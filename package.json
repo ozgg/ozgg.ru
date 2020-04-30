@@ -1,14 +1,14 @@
 {
-  "name": "ozgg",
+  "name": "ozgg_ru",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5",
-    "postcss-smart-import": "^0.7.6",
-    "rails-erb-loader": "^5.4.2",
-    "rails-ujs": "^5.2.0"
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.2.2"
   },
+  "version": "0.1.0",
   "devDependencies": {
-    "postcss-assets": "^5.0.0",
-    "webpack-dev-server": "2.11.2"
+    "webpack-dev-server": "^3.10.3"
   }
 }
