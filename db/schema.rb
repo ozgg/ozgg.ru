@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_29_180438) do
+ActiveRecord::Schema.define(version: 2020_07_02_181828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,36 @@ ActiveRecord::Schema.define(version: 2020_04_29_180438) do
     t.index ["user_id"], name: "index_codes_on_user_id"
   end
 
+  create_table "dynamic_blocks", comment: "Dynamic blocks", force: :cascade do |t|
+    t.string "slug", null: false
+    t.boolean "visible", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "body"
+    t.jsonb "data", default: {}, null: false
+    t.index ["data"], name: "index_dynamic_blocks_on_data", using: :gin
+    t.index ["slug"], name: "index_dynamic_blocks_on_slug", unique: true
+  end
+
+  create_table "dynamic_pages", comment: "Dynamic pages", force: :cascade do |t|
+    t.uuid "uuid", null: false
+    t.bigint "simple_image_id"
+    t.bigint "language_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "visible", default: true, null: false
+    t.string "slug", null: false
+    t.string "url"
+    t.string "name"
+    t.text "body", default: "", null: false
+    t.jsonb "data", default: {}, null: false
+    t.index ["data"], name: "index_dynamic_pages_on_data", using: :gin
+    t.index ["language_id"], name: "index_dynamic_pages_on_language_id"
+    t.index ["simple_image_id"], name: "index_dynamic_pages_on_simple_image_id"
+    t.index ["url"], name: "index_dynamic_pages_on_url"
+    t.index ["uuid"], name: "index_dynamic_pages_on_uuid", unique: true
+  end
+
   create_table "foreign_sites", comment: "Sites for external authentication", force: :cascade do |t|
     t.string "slug", null: false
     t.string "name", null: false
@@ -193,6 +223,25 @@ ActiveRecord::Schema.define(version: 2020_04_29_180438) do
     t.string "name", null: false
     t.index ["biovision_component_id", "name"], name: "index_metrics_on_biovision_component_id_and_name"
     t.index ["biovision_component_id"], name: "index_metrics_on_biovision_component_id"
+  end
+
+  create_table "navigation_group_pages", comment: "Dynamic pages in navigation groups", force: :cascade do |t|
+    t.bigint "navigation_group_id", null: false
+    t.bigint "dynamic_page_id", null: false
+    t.integer "priority", limit: 2, default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dynamic_page_id"], name: "index_navigation_group_pages_on_dynamic_page_id"
+    t.index ["navigation_group_id"], name: "index_navigation_group_pages_on_navigation_group_id"
+  end
+
+  create_table "navigation_groups", comment: "Navigation groups", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "dynamic_pages_count", default: 0, null: false
+    t.string "slug", null: false
+    t.string "name", null: false
+    t.index ["slug"], name: "index_navigation_groups_on_slug", unique: true
   end
 
   create_table "notifications", comment: "Component notifications for users", force: :cascade do |t|
@@ -323,6 +372,8 @@ ActiveRecord::Schema.define(version: 2020_04_29_180438) do
   add_foreign_key "codes", "biovision_components", on_update: :cascade, on_delete: :cascade
   add_foreign_key "codes", "ip_addresses", on_update: :cascade, on_delete: :nullify
   add_foreign_key "codes", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "dynamic_pages", "languages", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "dynamic_pages", "simple_images", on_update: :cascade, on_delete: :nullify
   add_foreign_key "foreign_users", "agents", on_update: :cascade, on_delete: :nullify
   add_foreign_key "foreign_users", "foreign_sites", on_update: :cascade, on_delete: :cascade
   add_foreign_key "foreign_users", "ip_addresses", on_update: :cascade, on_delete: :nullify
@@ -332,6 +383,8 @@ ActiveRecord::Schema.define(version: 2020_04_29_180438) do
   add_foreign_key "login_attempts", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "metric_values", "metrics", on_update: :cascade, on_delete: :cascade
   add_foreign_key "metrics", "biovision_components", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "navigation_group_pages", "dynamic_pages", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "navigation_group_pages", "navigation_groups", on_update: :cascade, on_delete: :cascade
   add_foreign_key "notifications", "biovision_components", on_update: :cascade, on_delete: :cascade
   add_foreign_key "notifications", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "simple_image_tag_images", "simple_image_tags", on_update: :cascade, on_delete: :cascade
