@@ -1,0 +1,39 @@
+.posts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.post-preview {
+
+}
+
+.post {
+  .main-image {
+    position: relative;
+    .image {
+      width: 100%;
+    }
+
+    figcaption {
+      background: rgba(255, 255, 255, .75);
+      bottom: 0;
+      left: 0;
+      padding: var(--spacer-s);
+      position: absolute;
+      right: 0;
+      z-index: 3;
+    }
+
+    img {
+      height: 100%;
+      object-fit: contain;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<% if collection.any? %>
+  <ul class="posts-list">
+    <% collection.each do |entity| %>
+      <li>
+        <div class="post-preview">
+          <figure>
+            <%= entity_link(entity, simple_image_small(entity), class: 'image') %>
+          </figure>
+          <div class="text">
+            <%= entity_link(entity) %>
+            <p class="lead"><%= raw(entity.lead) %></p>
+            <%= time_tag(entity.created_at.to_date) %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

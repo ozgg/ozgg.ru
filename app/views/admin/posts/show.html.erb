@@ -1,0 +1,27 @@
+<% content_for :meta_title, t('.title', title: @entity.title) %>
+<% content_for :breadcrumbs do %>
+  <%= admin_biovision_component_link(component_handler.component) %>
+  <%= link_to(t('admin.posts.nav_item.text'), admin_posts_path) %>
+  <span><%= @entity.title %></span>
+<% end %>
+
+<article>
+  <h1><%= @entity.title %></h1>
+
+  <nav class="entity-actions">
+    <%= world_icon(@entity) %>
+    <%= edit_icon(@entity) %>
+    <%= destroy_icon(@entity) %>
+  </nav>
+
+  <dl class="fields">
+    <%= render partial: 'shared/entity/simple_image', locals: { entity: @entity } %>
+    <%= render partial: 'shared/entity/text_field', locals: { entity: @entity, field: :title } %>
+    <%= render partial: 'shared/entity/slug', locals: { entity: @entity } %>
+    <%= render partial: 'shared/entity/raw_text_field', locals: { entity: @entity, field: :lead } %>
+    <%= render partial: 'shared/entity/raw_text_field', locals: { entity: @entity, field: :body } %>
+    <%= render partial: 'shared/entity/timestamps', locals: { entity: @entity } %>
+  </dl>
+
+  <%= render partial: 'shared/admin/toggle', locals: { entity: @entity } %>
+</article>

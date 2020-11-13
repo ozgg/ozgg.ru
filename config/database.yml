@@ -19,7 +19,7 @@ test:
 
 production:
   <<: *default
-  database: ozgg
+  database: ozgg2
   username: maxim
   password: <%= ENV['DATABASE_PASSWORD'] %>
   host: localhost

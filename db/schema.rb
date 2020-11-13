@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_181828) do
+ActiveRecord::Schema.define(version: 2020_11_12_231909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -259,6 +259,25 @@ ActiveRecord::Schema.define(version: 2020_07_02_181828) do
     t.index ["uuid"], name: "index_notifications_on_uuid", unique: true
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.uuid "uuid", null: false
+    t.bigint "simple_image_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "featured", default: false, null: false
+    t.boolean "visible", default: true, null: false
+    t.string "title"
+    t.string "slug"
+    t.text "lead"
+    t.text "body", null: false
+    t.jsonb "data", default: {}, null: false
+    t.index "date_trunc('month'::text, created_at)", name: "posts_created_at_month_idx"
+    t.index "posts_tsvector((title)::text, lead, body)", name: "posts_search_idx", using: :gin
+    t.index ["data"], name: "index_posts_on_data", using: :gin
+    t.index ["simple_image_id"], name: "index_posts_on_simple_image_id"
+    t.index ["uuid"], name: "index_posts_on_uuid", unique: true
+  end
+
   create_table "simple_image_tag_images", comment: "Links between simple images and tags", force: :cascade do |t|
     t.bigint "simple_image_id", null: false
     t.bigint "simple_image_tag_id", null: false
@@ -387,6 +406,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_181828) do
   add_foreign_key "navigation_group_pages", "navigation_groups", on_update: :cascade, on_delete: :cascade
   add_foreign_key "notifications", "biovision_components", on_update: :cascade, on_delete: :cascade
   add_foreign_key "notifications", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "posts", "simple_images", on_update: :cascade, on_delete: :nullify
   add_foreign_key "simple_image_tag_images", "simple_image_tags", on_update: :cascade, on_delete: :cascade
   add_foreign_key "simple_image_tag_images", "simple_images", on_update: :cascade, on_delete: :cascade
   add_foreign_key "simple_images", "agents", on_update: :cascade, on_delete: :nullify

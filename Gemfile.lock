@@ -1,7 +1,7 @@
 PATH
   remote: /Users/maxim/Projects/Biovision/gems/biovision
   specs:
-    biovision (0.0.201030.0)
+    biovision (0.0.201114.0)
       bcrypt (~> 3.1)
       carrierwave (~> 2.0)
       carrierwave-bombshelter (~> 0.2)

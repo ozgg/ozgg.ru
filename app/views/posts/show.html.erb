@@ -1,0 +1,25 @@
+<% content_for :meta_title, @entity.title %>
+<% content_for :breadcrubms do %>
+  <span><%= @entity.title %></span>
+<% end %>
+
+<article class="post">
+  <div class="content-wrapper">
+    <% unless @entity.simple_image.nil? %>
+      <figure class="main-image">
+        <div class="image"><%= simple_image_hd(@entity) %></div>
+        <figcaption><%= @entity.simple_image&.caption %></figcaption>
+      </figure>
+    <% end %>
+
+    <h1><%= @entity.title %></h1>
+
+    <div class="text">
+      <%= raw @entity.body %>
+    </div>
+
+    <footer>
+      <%= time_tag @entity.created_at %>
+    </footer>
+  </div>
+</article>

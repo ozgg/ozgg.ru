@@ -1,0 +1,11 @@
+<article class="frontpage">
+  <div class="content-wrapper">
+    <header>
+      <h1>Оставайтесь, вам помогут.</h1>
+    </header>
+
+    <section class="frontpage-posts">
+      <%= render partial: 'components/posts/list', locals: { collection: @collection } %>
+    </section>
+  </div>
+</article>

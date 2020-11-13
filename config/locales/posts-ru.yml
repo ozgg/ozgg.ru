@@ -1,0 +1,37 @@
+ru:
+  activerecord:
+    models:
+      post: "Публикация"
+    attributes:
+      post:
+        body: "Текст"
+        featured: "Избранное"
+        lead: "Аннотация"
+        title: "Заголовок"
+  biovision:
+    components:
+      posts:
+        name: "Публикации"
+  admin:
+    posts:
+      destroy:
+        success: "Публикация удалена"
+      edit:
+        heading: "Редактирование публикации"
+        title: "Редактирование публикации"
+      nav_item:
+        description: "Управление публикациями"
+        text: "Все публикации"
+      new:
+        heading: "Новая публикация"
+        title: "Добавление публикации"
+      index:
+        title: "Публикации, страница %{page}"
+        heading: "Публикации"
+      show:
+        title: "Публикация «%{title}»"
+  posts:
+    index:
+      title: "Публикации, страница %{page}"
+      nav_text: "Публикации"
+      heading: "Публикации"
