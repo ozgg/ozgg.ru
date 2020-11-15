@@ -1,0 +1,21 @@
+
+@media (max-width: 800px) {
+  :root {
+    --font-size-xxl: 4rem;
+    --font-size-xl: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --font-size-xxl: 3.5rem;
+    --font-size-xl: 2.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-xxl: 3.2rem;
+    --font-size-xl: 2.5rem;
+  }
+}

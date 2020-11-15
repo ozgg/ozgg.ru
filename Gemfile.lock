@@ -1,7 +1,8 @@
-PATH
-  remote: /Users/maxim/Projects/Biovision/gems/biovision
+GIT
+  remote: https://github.com/Biovision/biovision.git
+  revision: f11ec2908a54bcb9e286ebfcd4d76b835eebfa1b
   specs:
-    biovision (0.0.201114.0)
+    biovision (0.0.201115.0)
       bcrypt (~> 3.1)
       carrierwave (~> 2.0)
       carrierwave-bombshelter (~> 0.2)
@@ -98,7 +99,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    erubi (1.9.0)
+    erubi (1.10.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.1.0)

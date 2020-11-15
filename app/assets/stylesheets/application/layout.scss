@@ -1,3 +1,24 @@
+@import "vars";
+
+* { outline: solid pink 1px }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
 @import "biovision/components/buttons";
 @import "biovision/components/forms";
 @import "application/layout/components";

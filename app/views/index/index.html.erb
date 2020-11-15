@@ -1,7 +1,15 @@
+<% content_for :meta_title, @dynamic_page&.name %>
+
 <article class="frontpage">
   <div class="content-wrapper">
     <header>
       <h1>Оставайтесь, вам помогут.</h1>
+
+      <% unless @dynamic_page.nil? %>
+        <div class="text">
+          <%= raw @dynamic_page.body %>
+        </div>
+      <% end %>
     </header>
 
     <section class="frontpage-posts">
