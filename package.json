@@ -2,7 +2,7 @@
   "name": "ozgg_ru",
   "private": true,
   "dependencies": {
-    "@biovision/biovision": "file:../../Biovision/js/npm-biovision",
+    "@biovision/biovision": "^0.0.3",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
