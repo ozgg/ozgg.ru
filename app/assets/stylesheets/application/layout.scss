@@ -1,6 +1,6 @@
 @import "vars";
 
-* { outline: solid pink 1px }
+//* { outline: solid pink 1px }
 
 h1,
 h2,
@@ -19,6 +19,15 @@ h2 {
   font-size: var(--font-size-xl);
 }
 
+p:first-of-type {
+  margin-top: 0;
+}
+
+p:last-of-type {
+  margin-bottom: 0;
+}
+
 @import "biovision/components/buttons";
 @import "biovision/components/forms";
 @import "application/layout/components";
+@import "application/layout/frontpage";

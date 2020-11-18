@@ -75,9 +75,13 @@
 
 .post {
   .main-image {
+    box-shadow: var(--block-shadow);
+    margin: 0 auto var(--spacer-s);
+    max-width: 64rem;
     position: relative;
 
     .image {
+      display: flex;
       width: 100%;
     }
 

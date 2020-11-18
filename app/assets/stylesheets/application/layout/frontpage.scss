@@ -1,0 +1,38 @@
+.frontpage {
+  > header {
+    border-bottom: var(--border-secondary);
+    margin: 0 auto var(--spacer-s);
+    max-width: var(--content-width);
+    padding: var(--spacer-xxs);
+
+    figcaption {
+      color: var(--text-color-secondary);
+      padding: var(--spacer-xxs) var(--spacer-s);
+      text-align: right;
+    }
+
+    cite {
+      font-style: normal;
+
+      &::before {
+        content: open-quote;
+      }
+
+      &::after {
+        content: close-quote;
+      }
+    }
+
+    .text {
+      margin-top: var(--spacer-s);
+    }
+  }
+
+  blockquote {
+    background: #f7f7f7;
+    border-left: .2rem solid var(--text-color-secondary);
+    box-shadow: .2rem .2rem .4rem var(--text-color-secondary);
+    margin: 0;
+    padding: var(--spacer-s);
+  }
+}

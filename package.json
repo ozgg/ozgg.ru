@@ -1,6 +1,7 @@
 {
   "name": "ozgg_ru",
   "private": true,
+  "//": "Local Biovision: file:../../Biovision/js/npm-biovision",
   "dependencies": {
     "@biovision/biovision": "^0.0.3",
     "@rails/actioncable": "^6.0.0",
