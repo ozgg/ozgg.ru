@@ -1,6 +1,7 @@
 .posts-list {
   list-style: none;
   margin: var(--spacer-xs) 0;
+  max-width: 72rem;
   padding: 0;
 
   li {
@@ -10,6 +11,7 @@
 }
 
 .post-preview {
+  border: .1rem solid rgba(0, 0, 0, .125);
   display: flex;
   flex-wrap: wrap;
 
@@ -76,8 +78,8 @@
 .post {
   .main-image {
     box-shadow: var(--block-shadow);
-    margin: 0 auto var(--spacer-s);
-    max-width: 64rem;
+    margin: 0 0 var(--spacer-s);
+    max-width: 72rem;
     position: relative;
 
     .image {
@@ -100,5 +102,9 @@
       object-fit: contain;
       width: 100%;
     }
+  }
+
+  .text {
+    max-width: 72rem;
   }
 }

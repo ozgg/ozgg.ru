@@ -1,4 +1,5 @@
 <% content_for :meta_title, @entity.title %>
+<% content_for :meta_description, @entity.lead %>
 <% content_for :breadcrumbs do %>
   <%= link_to(t('posts.index.nav_text'), posts_path) %>
   <span><%= @entity.title %></span>
@@ -7,6 +8,8 @@
 <article class="post">
   <div class="content-wrapper">
     <% unless @entity.simple_image.nil? %>
+      <% content_for :meta_image, @entity.simple_image.image.medium_url %>
+      <% content_for :meta_image_alt, @entity.simple_image.image_alt_text %>
       <figure class="main-image">
         <div class="image"><%= simple_image_hd(@entity) %></div>
         <figcaption><%= @entity.simple_image&.caption %></figcaption>
