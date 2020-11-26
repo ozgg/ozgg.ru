@@ -6,7 +6,20 @@
     <%= render partial: 'shared/forms/text_field', locals: { f: f, field: :title, data: { transliterate: 'post_slug' } } %>
     <%= render partial: 'shared/forms/text_field', locals: { f: f, field: :slug } %>
     <%= render partial: 'shared/forms/text_area', locals: { f: f, field: :lead } %>
-    <%= render partial: 'shared/forms/text_area', locals: { f: f, field: :body } %>
+    <div>
+      <dt><%= f.label :body %></dt>
+      <dd>
+        <%=
+          f.text_area(
+              :body,
+              class: 'input-text',
+              cols: 80,
+              rows: 25
+          )
+        %>
+        <button type="button" class="js-text-formatter button button-secondary">&#x2B50;</button>
+      </dd>
+    </div>
     <%= render partial: 'shared/forms/entity_flags', locals: { f: f } %>
   </dl>
 
