@@ -1,0 +1,8 @@
+<nav class="adjacent">
+  <% if items[:older] %>
+    <%= entity_link(items[:older], nil, class: 'older') %>
+  <% end %>
+  <% if items[:newer] %>
+    <%= entity_link(items[:newer], nil, class: 'newer') %>
+  <% end %>
+</nav>

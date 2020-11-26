@@ -53,4 +53,11 @@ class Post < ApplicationRecord
   def world_url
     "/posts/#{id}-#{slug}"
   end
+
+  def adjacent
+    {
+      older: Post.where('id < ?', id).order('id desc').first,
+      newer: Post.where('id > ?', id).order('id asc').first
+    }
+  end
 end

@@ -22,8 +22,10 @@
       <%= raw @entity.body %>
     </div>
 
-    <footer>
+    <footer class="post-footer">
       <%= time_tag @entity.created_at %>
     </footer>
   </div>
 </article>
+
+<%= render partial: 'components/posts/adjacent', locals: { items: @entity.adjacent } %>
