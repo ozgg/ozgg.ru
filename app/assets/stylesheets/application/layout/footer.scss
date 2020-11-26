@@ -1,4 +1,9 @@
 .main-footer {
+  background: hsl(0, 0%, 98%);
+  box-shadow: inset 0 .4rem .4rem rgba(0, 0, 0, .25);
+  margin-top: var(--spacer-s);
+  padding: var(--spacer-xs) 0;
+
   nav {
     align-items: flex-start;
     display: flex;
