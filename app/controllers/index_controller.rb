@@ -7,4 +7,9 @@ class IndexController < ApplicationController
     @dynamic_page = DynamicPage['frontpage']
     @collection = Post.page_for_visitors
   end
+
+  # get /sitemap.xml
+  def sitemap
+    @collection = Post.recent
+  end
 end

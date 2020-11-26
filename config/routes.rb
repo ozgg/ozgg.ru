@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :posts, concerns: %i[check toggle]
   end
+
+  get 'sitemap.xml' => 'index#sitemap'
 end

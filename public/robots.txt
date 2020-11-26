@@ -1,1 +1,9 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+Host: https://ozgg.ru
+Sitemap: https://ozgg.ru/sitemap.xml
+
+User-Agent: *
+Allow: /
+Disallow: /admin    # Restricted area
+Disallow: /auth     # OAuth makes sense only for humans
+Disallow: /login    # Robots do not need login page
+Disallow: /my       # Only for logged-in users
